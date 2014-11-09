@@ -4,8 +4,14 @@ end
 
 package '/root/epel-release.rpm'
 package 'nginx'
-package 'python-devel'
+package 'python-pip'
 package 'gcc'
 package 'gcc-c++'
 package 'python-flask'
 package 'python-jinja2'
+package 'strace'
+
+service "nginx" do
+  supports :status => true, :restart => true, :reload => true
+  action [ :enable, :restart ]
+end
